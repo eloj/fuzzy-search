@@ -27,6 +27,8 @@ int levenshtein(const char *s1, int s1_len, const char *s2, int s2_len, int max_
 
 If you specify `-1` for the string lengths, `strlen()` will be called internally.
 
+Specify `-1` for `max_k` if you want the true distance returned in every case.
+
 A buffer the length of the longest input string is allocated on the stack.
 
 The function contains a fair amount of pre-checks which sacrifice a little bit of
