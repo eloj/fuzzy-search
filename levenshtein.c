@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 
 	int d = levenshtein(s1, -1, s2, -1, max_k);
 
-	int exact = (max_k < 0 || d < max_k);
+	int exact = (max_k < 0 || d < max_k); // doesn't reflect pre-checks such as early-outs. Close enough for demo.
 	printf("ed('%s', '%s', %d) %s %d\n", s1, s2, max_k, exact ? "=" : "at least", exact ? d : max_k);
 
 	return EXIT_SUCCESS;
