@@ -1,7 +1,8 @@
 
 # Fuzzy Search
 
-Experiments in fuzzy-searching, edit distances and related fields.
+Experiments in fuzzy-searching, edit distances and related fields. Copy from this
+code at your own risk.
 
 *NOTE:* Since this repo is meant for experiments, _I reserve the right to rebase it._
 
@@ -18,6 +19,8 @@ the previous row (or column, depending on world-view) of the matrix,
 and supporting a `max_k` to reduce the number of matrix entries that needs
 to be calculated when you don't care about the true distance, only whether
 it's at least `max_k` or not.
+
+Only supports extended-ASCII (octet) alphabet.
 
 ### Prototype
 
@@ -43,6 +46,29 @@ $ ./levenshtein 2 volvo volvvos
 ed('volvo', 'volvvos', 2) at least 2
 $ ./levenshtein 3 volvo volvvos
 ed('volvo', 'volvvos', 3) = 2
+```
+
+## damerau.c
+
+Bog-standard implementation, building the full matrix.
+
+Only supports extended-ASCII (octet) alphabet.
+
+### Prototype
+
+```c
+static int damerau_ref(const char *s1, int s1_len, const char *s2, int s2_len);
+```
+
+### Driver example runs
+
+```bash
+$ ./damerau CA AC
+damerau('CA', 'AC') = 1
+$ ./damerau AC ABC
+damerau('AC', 'ABC') = 1
+$ ./damerau CA ABC
+damerau('CA', 'ABC') = 2
 ```
 
 # Build status #
