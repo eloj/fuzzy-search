@@ -32,7 +32,8 @@ If you specify `-1` for the string lengths, `strlen()` will be called internally
 
 Specify `-1` for `max_k` if you want the true distance returned in every case.
 
-A buffer the length of the longest input string is allocated on the stack.
+A buffer the length of the longest input string is allocated on the stack,
+i.e space is in `O(min(|s1|,|s2|))`.
 
 The function contains a fair amount of pre-checks which sacrifice a little bit of
 performance in the common case for robustness.
@@ -50,7 +51,8 @@ ed('volvo', 'volvvos', 3) = 2
 
 ## damerau.c
 
-Bog-standard implementation, building the full matrix.
+Bog-standard implementation, building the full matrix,
+i.e space is in `O(|s1|*|s2|)+|Σ|`
 
 Only supports extended-ASCII (octet) alphabet.
 
