@@ -32,7 +32,7 @@ If you specify `-1` for the string lengths, `strlen()` will be called internally
 
 Specify `-1` for `max_k` if you want the true distance returned in every case.
 
-A buffer the length of the longest input string is allocated on the stack,
+A buffer proportional to the length of the shortest input string is allocated on the stack,
 i.e space is in `O(min(|s1|,|s2|))`.
 
 The function contains a fair amount of pre-checks which sacrifice a little bit of
